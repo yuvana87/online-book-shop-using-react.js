@@ -1,0 +1,15 @@
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const books = [
+  { id: 1, title: "java", authour: "F:ghgfh", price: 10.99 },
+  { id: 2, title: "computernetworks", authour: "ghgfh", price: 10.99 },
+  { id: 3, title: "operatingSystems", authour: "F:gfh", price: 10.99 },
+];
+app.use(cors());
+app.listen(3001, () => {
+  console.log("server listening on the port 3001");
+});
+app.use("/books", (request, response) => {
+  response.status(200).json(books);
+});
